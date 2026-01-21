@@ -1,30 +1,41 @@
-// 1️⃣ Promise.all() → “All must pass”
-// What it does
+ 1️⃣ Promise.all() → “All must pass” What it does
 
-// Runs all promises together
+Runs all promises together
 
-// ✅ Resolves only if ALL succeed
+They are execute in parallel; 
 
-// ❌ Fails immediately if ANY fails
+✅ Resolves only if ALL succeed  //this is imp line 
+
+❌ Fails immediately if ANY fails
 
 
 *****************************************************************************
 
 
-// 2️⃣ Promise.race() → “First finished wins”
-// What it does
+ 2️⃣ Promise.race() → “First finished wins”
 
-// Runs all promises together
+ What it does
 
-// Returns first completed promise
+ Runs all promises together
 
-// That first one can be ✅ success or ❌ failure
+ Returns first completed promise
 
-// Simple meaning
+ That first one can be ✅ success or ❌ failure
 
-// “Whoever finishes first, I accept it”
+ Simple meaning
 
-*****************************************************************************
+“Whoever finishes first, I accept it”
+
+******************************************************************************************
+
+
+| Method           | What it waits for | When it resolves | When it rejects    |
+| ---------------- | ----------------- | ---------------- | ------------------ |
+| `Promise.race()` | First **finish**  | First resolve    | First reject       |
+| `Promise.any()`  | First **success** | First resolve    | Only if all reject |
+
+
+*****************************************************************************************
 
 
 3️⃣ Promise.any() → “First success wins”
@@ -75,5 +86,8 @@ Promise.race([p1, p2])
 
 
 ❌ Error from p1
+
+
+
 
 
