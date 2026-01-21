@@ -1,0 +1,31 @@
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+}
+#grandparent{
+    width: 400px;
+    height: 400px;
+    border: 2px solid black;
+   
+}
+
+#parent{
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    margin-left: 90px;
+    margin-top: 90px;
+}
+
+#child{
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+    margin-left: 50px;
+    margin-top: 90px;
+    margin-bottom: 100px;
+}
+
