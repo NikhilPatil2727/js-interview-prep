@@ -13,19 +13,19 @@
 
 let p1 = new Promise((resolve, reject) => {
     setTimeout(() => {
-        reject("Task 1");
+        resolve("Task 1");
     }, 6000);
 });
 
 let p2 = new Promise((resolve, reject) => {
     setTimeout(() => {
-        reject("task 2");
+        resolve("task 2");
     }, 100);
 });
 
 let p3 = new Promise((resolve, reject) => {
     setTimeout(() => {
-        reject("task 3");
+        resolve("task 3");
     }, 5000);
 });
 
@@ -39,7 +39,7 @@ let p3 = new Promise((resolve, reject) => {
 
 
 
-Promise.race([p1,p2,p3]).
+Promise.all([p1,p2,p3]).
 then((response)=>console.log(response)).
 catch((err)=>console.log(err));
 
