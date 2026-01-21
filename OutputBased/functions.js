@@ -16,6 +16,7 @@
 
 
 // displyfunction(square);
+/****************************************************************************************************** */
 
 
 //what is an IFFI function
@@ -26,6 +27,7 @@
 // }
 // )();
 
+/****************************************************************************************************** */
 
 const x = "declared outside function";
 
@@ -42,6 +44,7 @@ function exampleFunction() {
 // console.log(x);
 
 
+/****************************************************************************************************** */
 
 
 // for(var i=0;i<5;i++){
@@ -52,39 +55,35 @@ function exampleFunction() {
 
 //The loop runs very fast
 
-// setTimeout does not run immediately
-// → it goes to the event queue
 
-// By the time setTimeout callbacks execute:
+// var is function-scoped, NOT block-scoped
 
-// the loop has already finished
+// var i creates only one variable i
 
-// i value has become 5
+// The loop does not create a new i each time
 
-// All callbacks share the same i
+// setTimeout runs later, not immediately
 
-// So every console.log(i) prints 5
-
-
-
+// setTimeout does not run inside the loop
 
 
 // let is block-scoped
 
 // Each iteration gets a new i
+/****************************************************************************************************** */
 
 
-// functionName();
+functionName();
 
-// function functionName(){
-//     console.log(x);
-//     var x=5;
-//     console.log("roadside coder");
+function functionName(){
+    console.log(x);
+    var x=5;
+    console.log("roadside coder");
 
-// }
+}
 
 
-
+/****************************************************************************************************** */
 
 
 
@@ -95,15 +94,26 @@ function exampleFunction() {
     //     console.log(x);
     //     var x=23;
     // }
-//👉 In the first case, var x inside the function is hoisted and shadows the global x, so undefined is logged;
 
-//in the second case, no local x exists, so JavaScript reads x from the global scope and logs 21.
+//     ┌─────────────────────────┬─────────────────────────────┐
+// │   GEC – Memory Phase    │   GEC – Execution Phase     │
+// ├─────────────────────────┼─────────────────────────────┤
+// │ x   → undefined         │ x = 21                      │
+// │ fun → function() {...} │ fun() is called             │
+// └─────────────────────────┴─────────────────────────────┘
 
 
+// ┌─────────────────────────┬─────────────────────────────┐
+// │   FEC – Memory Phase    │   FEC – Execution Phase     │
+// ├─────────────────────────┼─────────────────────────────┤
+// │ x → undefined           │ console.log(x) → undefined │
+// │                         │ x = 20                      │
+// └─────────────────────────┴─────────────────────────────┘
 
 
 //creates a seperate execution context for that function /local scope that why they printed undefined 
 
+/****************************************************************************************************** */
 
 
 //Arrow functoins vs Reguler functions
@@ -131,6 +141,10 @@ function exampleFunction() {
 //     console.log(arguments);
 // }
 
+
+//check the output in console
+// The arguments Are Recieced
+
 // fun(1,2,3,3);
 
 
@@ -139,6 +153,11 @@ function exampleFunction() {
 // }
 
 // fn();
+
+
+
+// Arrow functions do NOT have their own this.
+// They take this from the outer (lexical) scope.
 
 
 
