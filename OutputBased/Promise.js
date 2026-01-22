@@ -98,6 +98,7 @@
 
 //A .catch() handles the error and returns a NEW resolved promise (unless it throws another error).
 
+//.catch() handles the error and then returns a resolved Promise by default
 
 //******************************************************************************** */
 
@@ -130,24 +131,62 @@
 // .catch(function(error){
 //     console.log(error)
 // })
+//******************************************************************************** */
+
+
+// function job(state){
+//     return new Promise((resolve, reject) => {
+//         if(state){
+//             resolve("success")
+//         }else{
+//             reject("error")
+//         }
+//     });
+// }
+
+
+// let promise=job(true);
+
+// promise
+// .then((res)=>console.log("success1"))
+// .catch((error)=>console.log("error"+error))
+// .then((res)=>console.log("success2"))
+// .then((res)=>console.log("success3"))
+
+
+
+// Every .then() returns a NEW Promise
+
+// Every .then() and every .catch() returns a NEW Promise.
+
+
+//output
+// success1
+// success2
+// success3
 
 
 //******************************************************************************** */
 
 // i have learned the new thing form this example
-// const firstPromise=new Promise((resolve, reject) => {
-//     resolve("This is first promise")
-// })
 
-// const secondPromise=new Promise((resolve, reject) => {
-//     resolve(firstPromise);
-// })
+
+const firstPromise=new Promise((resolve, reject) => {
+    resolve("This is first promise")
+})
+
+const secondPromise=new Promise((resolve, reject) => {
+    resolve(firstPromise);
+})
 
 
 // secondPromise.then((response)=>console.log(response))
 // .catch((error)=>console.log(error))
 
 
+// secondPromise.then((response)=>response)
+// .then((res)=>console.log(res))
+// .catch((error)=>console.log(error))
 //******************************************************************************** */
 
 
