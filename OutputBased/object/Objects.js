@@ -6,6 +6,7 @@
 
 // console.log(func)
 
+//simply vo function hai not a object 
 // delete only works on object properties
 
 // It does NOT delete local variables or function parameters
@@ -88,6 +89,17 @@
 
 // console.log(a);
 
+
+// a["[object Object]"] = 123;
+// a["[object Object]"] = 456; // overwrites
+
+
+// If b & a is a string → used directly
+
+// If b & a is a number → converted to string
+
+// If b is an object → converted to string ("[object Object]")
+
 // Object keys are always strings (or symbols)
 //so it overlaps it 
 
@@ -108,6 +120,16 @@
 
 // console.log(objects)
 
+// real world use case of JSON.stringify
+// Sending data to backend
+
+
+
+//localStorage can store only strings.
+// const user = { name: "Nikhil", theme: "dark" };
+
+// localStorage.setItem("user", JSON.stringify(user));
+
 
 //****************************************************************** */
 // what is the output ??
@@ -125,8 +147,27 @@
 // const data=JSON.stringify(setting,["level","health"]);
 
 // console.log(data);
-//output--> {"level":19,"health":20}  beacause of level and health beacones only stringigy
 
+
+
+// Key concept: Second argument of JSON.stringify
+
+// JSON.stringify(value, replacer)
+
+
+// ONLY those keys are included in the JSON output
+
+// What happens here
+// ["level", "health"]
+
+
+// So JSON.stringify:
+
+// ❌ ignores username
+
+// ✅ includes level
+
+// ✅ includes health
 
 //****************************************************************** */
 
@@ -242,3 +283,39 @@ const shape={
 
 //****************************************************************** */
 
+
+
+
+
+//shallow copy
+
+let Obj={
+    name:"Nikhil",
+    address:{
+        city:"ichalkranji"
+    }
+}
+
+// let ShalloCopy={...Obj}
+// let ShalloCopy=Object.assign({},Obj)
+Obj.address.city="kolhapur"
+console.log(ShalloCopy.address.city);
+
+
+
+
+// Deep Copy Example – Method 1 (Most Common)
+
+// Using JSON.parse(JSON.stringify())
+let Obj = {
+  name: "Nikhil",
+  address: {
+    city: "ichalkranji"
+  }
+};
+
+let DeepCopy = JSON.parse(JSON.stringify(Obj));
+
+Obj.address.city = "kolhapur";
+
+console.log(DeepCopy.address.city); // ichalkranji ✅
