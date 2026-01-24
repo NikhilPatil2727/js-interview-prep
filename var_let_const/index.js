@@ -11,13 +11,35 @@
 // abc();
 
 
-var x = 10;  
+// var x = 10;  
 
-function name() {
+// function name() {
   
-    console.log(x);
-}
-name();
-console.log(x); 
+//     console.log(x);
+// }
+// name();
+
+
+
+
+// var x = 10;  
+
+// {
+//   var x = 20;
+//   console.log(x);
+// }
+
+// console.log(x); //20 20
+
+// var is NOT block-scoped, it is function-scoped
+
+// So this does NOT create a new variable.
+
+// Instead, it updates the same x.
+
+// Think of it as:
+
+// var x = 10;
+// x = 20;   // same variable
 
 
