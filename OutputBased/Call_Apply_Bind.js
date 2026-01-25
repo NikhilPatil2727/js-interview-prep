@@ -47,22 +47,43 @@ var person={
 //     console.log(data.getStatus.call(this));//😎 arrow function do not have this 
 // })
 
+// Arrow functions do NOT have their own this
+
+// They inherit this from where they are defined
+
+// Here, that is the global scope
+
 //*************************************************************************************************** */
 
 //call printAnimals such that it prints all animals in object
 
 
-// const animals=[
-//     {species:"Lion",name:"King"},
-//     {species:"Whale",name:"Queen"},
-// ]
+const animals=[
+    {species:"Lion",name:"King"},
+    {species:"Whale",name:"Queen"},
+]
 
-// function printAnimals(i){
-//     this.print=function(){
-//         console.log("#"+i+" "+this.species+": "+this.name)
-//     };
-//     this.print();
+function printAnimals(i){
+    this.print=function(){
+        console.log("#"+i+" "+this.species+": "+this.name)
+    };
+    this.print();
+}
+
+//main thin is to understand is like this is poiting to window object 
+
+//we want to point to animals object and so call comes into the picture 
+//that is need to understand 
+
+
+// animals.map((data)=>printAnimals.call(data))
+
+// for(let i=0;i<animals.length;i++){
+//     printAnimals(animals[i]);
 // }
+// The output was
+// #[object Object] undefined: undefined
+// #[object Object] undefined: undefined
 
 // for(let i=0;i<animals.length;i++){
 //     printAnimals.call(animals[i]);
