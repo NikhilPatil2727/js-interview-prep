@@ -14,15 +14,15 @@
 //*************************************************************************************************** */
 
 
-const age=10;
+// const age=10;
 
-var person={
-    name:"piyush",
-    age:20,
-    getAge:function(){
-        return this.age;
-    }
-}
+// var person={
+//     name:"piyush",
+//     age:20,
+//     getAge:function(){
+//         return this.age;
+//     }
+// }
 
 // var person2={age:24};
 
@@ -122,6 +122,25 @@ function printAnimals(i){
 //     g:f.bind(null)
 // }
 
+
+
+
+
+
+
+
+
+
+// function f(){
+//     console.log(this)
+// }
+
+// let user={
+//     g:f()
+// }
+
+// user.g;
+
 // user.g();  //it will ame pattern querstio to this keyword
 
 //*************************************************************************************************** */
@@ -161,10 +180,11 @@ function printAnimals(i){
 //     }
 // };
 
+//The is called sepretly because of we are passing the ref so that why this was not print so they need to bind the object 
 // // You are passing functions only, not the object (user).
 // //thats why the not printed the user ok 
 
-// checkPassword(user.loginSuccessful, user.loginFailed);
+// checkPassword(user.loginSuccessful.bind(user), user.loginFailed.bind(user));
 
 
 
@@ -184,7 +204,6 @@ function printAnimals(i){
 //     }
 // }
 
-
 // let user={
 //     name:"NIKCS PATIL",
 //     login(result){
@@ -192,45 +211,49 @@ function printAnimals(i){
 //     },
 
 // }
+// checkPassword(user.login.bind(user,true),user.login.bind(user,false));
+
+
+
 
 // checkPassword(user.login.bind(user,true),user.login.bind(user,false))
 
 
 //**************************************************************************** */
 
-//call apply bind with arrow function
+// call apply bind with arrow function
+var age=10;
 
-// let person={
-//     name:"nikhil",
-//     age:20,
-//     getAgeArrow:()=>{
-//         console.log(this);
-//     },
-//     getAge:function() {
-//         console.log(this.age);
-//     }
-// }
+let person={
+    name:"nikhil",
+    age:20,
+    getAgeArrow:()=>{
+        console.log(this.age);
+    },
+    getAge:function() {
+        console.log(this.age);
+    }
+}
 
-// let person2={age:22};
-
-// person.getAge.call(person2)
-// person.getAgeArrow.call(person2)
+let person2={age:22};
+person.getAge.call(person2)
+person.getAgeArrow.call(person2)
 
 
 //**************************************************** */
 
-let car1={
-    color:"red",
-    company:"Range Rover"
-}
+// let car1={
+//     color:"red",
+//     company:"Range Rover"
+// }
 
 
 
-function purchase(currency,price){
-    console.log(
-        `I Have purchased ${this.color} and ${this.company} car for ${currency} & ${price}`
-    )
-}
+// function purchase(currency,price){
+//     console.log(
+//         `I Have purchased ${this.color} and ${this.company} car for ${currency} & ${price}`
+//     )
+// }
 
 // purchase.call(car1,"Rs.","1cr")
 //https://chatgpt.com/c/69478f57-6d4c-8324-b330-bdbe9fe06334
