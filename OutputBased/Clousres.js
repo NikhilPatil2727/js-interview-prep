@@ -249,12 +249,24 @@ console.log(res(5, 5)); // 25 (from cache)
 
 
 
+// Diff between Scope And Clousere
+
+// Scope means the place where a variable is born and where it is allowed to be used.
+
+
+// function test() {
+//   let x = 5;   // x is born here
+//   console.log(x); // x can be used here
+// }
+
+// console.log(x); // ❌ x not allowed here
 
 
 
+// closure
 
-
-
+// Scope is where a variable can be used; closure is when a 
+// function keeps using it even after that scope ends.
 
 
 
