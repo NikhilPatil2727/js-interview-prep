@@ -1,3 +1,15 @@
+//why we use crrying ??
+//Curried function (avoid repeating same variable)
+
+//Currying transforms a multi-argument function into a chain of 
+// single-argument functions, allowing partial application and better reusability.
+
+
+// Partial Application
+// Partial application is when a function is called with 
+// some arguments first and the remaining arguments later
+
+
 // function greet(a,b,c){
 //     return a+b+c;
 // }

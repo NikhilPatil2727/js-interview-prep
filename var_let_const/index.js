@@ -43,3 +43,16 @@
 // x = 20;   // same variable
 
 
+
+
+// function test(){
+//     var a="hello";
+
+//     if(true){
+//         let a="nikcs";
+//         console.log(a);      
+//     }
+//     console.log(a);
+// }
+
+// test();

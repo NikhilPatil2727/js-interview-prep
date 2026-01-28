@@ -1,6 +1,11 @@
 //why we use crrying ??
 //Curried function (avoid repeating same variable)
 
+//Currying transforms a multi-argument function into a chain of 
+// single-argument functions, allowing partial application and better reusability.
+
+
+
 // function greet(greeting, name) {
 //   return greeting + ", " + name;
 // }
@@ -25,13 +30,13 @@
 
 // Question-1  sum(2)(6)(1)
 
-function f(a){
-    return function(b){
-        return function(c){
-            return a+b+c;
-        }
-    }
-}
+// function f(a){
+//     return function(b){
+//         return function(c){
+//             return a+b+c;
+//         }
+//     }
+// }
 
 // const ans=f(2)(6)(8);
 // console.log(ans);
@@ -44,23 +49,23 @@ function f(a){
 //evaluate("divide")(4)(2)=>2
 //evaluate("substract")(4)(2)=>2
 
-function evaluate(operation) {
-  return function (a) {
-    return function (b) {
-      if (operation == "sum") return a + b;
-      else if (operation == "multiply") return a * b;
-      else if (operation == "divide") return a / b;
-      else if (operation == "substract") return a - b;
-      else return "invalid operation";
-    };
-  };
-}
+// function evaluate(operation) {
+//   return function (a) {
+//     return function (b) {
+//       if (operation == "sum") return a + b;
+//       else if (operation == "multiply") return a * b;
+//       else if (operation == "divide") return a / b;
+//       else if (operation == "substract") return a - b;
+//       else return "invalid operation";
+//     };
+//   };
+// }
 
-// console.log(evaluate("sum")(5)(5))
+// const ans=evaluate("Sum")(5)()
+// console.log(ans);
 
-// const ans=
 
-// console.log(ans)
+
 
 // let ans=evaluate("multiply")
 // let result=ans(5)(5)
@@ -94,6 +99,12 @@ function evaluate(operation) {
 // Feature	    Currying	       Partial Application
 // Arguments	One at a time	   Some at once
 
+
+// Partial Application
+// Partial application is when a function is called with 
+// some arguments first and the remaining arguments later.
+
+
 function Sum(a){
     return function(b,c){
         return a+b+c;
@@ -121,5 +132,64 @@ function Sum(a){
 // let update=updateDOM("heading");
 // update("hello ji");
 
+/*********************************************************************** */
+//implement curry()
 
+function curry(fn) {
+  return function curried(...args) {
+    if (args.length >= fn.length) {
+      return fn(...args);
+    }
+    return function (...nextArgs) {
+      return curried(...args, ...nextArgs);
+    };
+  };
+}
+
+
+function add(a, b, c) {
+  return a + b + c;
+}
+
+const curriedAdd = curry(add);
+
+console.log(curriedAdd(1)(2)(3))    // 6
+
+// Then how does fn.length work? 🤔
+// 🔑 IMPORTANT FACT (JS rule)
+
+// Every function in JavaScript has a built-in length property.
+
+// It tells:
+// 👉 How many parameters the function expects
+
+// 3️⃣ Example (try this in console)
+// function sum(a, b, c) {}
+
+// console.log(sum.length); // 3
+
+/*********************************************************************** */
+
+// ✅ YES. Exactly right.
+// You’ve got it 👌
+
+// 👉 Because fn is an object, fn.length works.
+
+// Why this is true (very simple)
+
+// In JavaScript:
+
+// function sum(a, b, c) {}
+
+
+// sum is a function
+
+// Functions are objects
+
+// Objects can have properties
+
+// So JavaScript automatically adds properties like:
+
+// sum.length   // number of parameters → 3
+// sum.name     // function name → "sum"
 
