@@ -1,45 +1,37 @@
 
-let counter=0;
-
-function getData(){
-    console.log("fetched data",counter++);
+let count=0;
+function getData() {
+    
+    console.log("function is called",count++)
 }
 
-function debounce(callback,dely){
-   let timer;
+function debouncing(callback,dely){
+    let time;
     return function(){
-         
-        if(timer) clearTimeout(timer);
-        
-        timer=setTimeout(() => {
-            callback();
-        }, dely);
+        if(time) {clearTimeout(time)}
+
+       time=setTimeout(() => {
+        callback();
+       }, dely);
     }
 }
 
+let result=debouncing(getData,1000)
 
 //**************************************************************************************************************** */
 
 
-let result=debounce(getData,1000);
+function Throt(callback,dealy){
+    return function(){
+        document.getElementById("btn").disabled=true;
+        setTimeout(() => {
+            callback();
+        }, dealy);
+    }
+}
 
 
 
-// function Throt(callback,dely){
-
-//     return function(){
-
-//         document.getElementById("btn").disabled=true;
-//         setTimeout(() => {
-//             callback();
-//         }, dely);
-//     }
-// }
-
-
-
-
-// let neFun=Throt(()=>{
-//     document.getElementById("btn").disabled=false;
-//     console.log("cliked")
-// },5000)
+let neFun=Throt(()=>{
+   document.getElementById("btn").disabled=false;
+},3000);
