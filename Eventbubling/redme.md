@@ -11,3 +11,15 @@
 // event.currentTarget → element handling the event
 
 // this → same as currentTarget (not in arrow functions)
+
+
+event.stopPropagation()-->It stops the event from bubbling up to parent elements.
+
+
+
+It does everything that `stopPropagation()` does AND:
+
+👉 **Also stops other event listeners on the SAME element.**
+
+
+
