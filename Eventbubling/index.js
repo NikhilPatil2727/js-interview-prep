@@ -1,29 +1,29 @@
 
 
-// let grandParent=document.getElementById("grandparent");
-// let parent=document.getElementById("parent");
-let but=document.getElementById("button");
-// let child=document.getElementById("child");
+let grandParent=document.getElementById("grandparent");
+let parent=document.getElementById("parent");
+let child=document.getElementById("child");
+
+// let but=document.getElementById("button");
+
+grandParent.addEventListener('click',()=>{
+    console.log("grandparent clicked");
+})
+
+parent.addEventListener('click',()=>{
+    console.log("parent clicked");
+})
 
 
-// grandParent.addEventListener('click',()=>{
-//     console.log("grandparent clicked");
-// })
-
-// parent.addEventListener('click',()=>{
-//     console.log("parent clicked");
-// })
-
-
-// child.addEventListener('click',(e)=>{
-//    e.stopPropagation();
-//     console.log("child  clicked");
-// })
+child.addEventListener('click',(e)=>{
+   
+    console.log("child  clicked");
+})
 
 
 
 // but.addEventListener('click',(e)=>{
-//     e.stopImmediatePropagation();
+//     // e.stopImmediatePropagation();
 //     console.log("button is clicked 1")
 // })
 
