@@ -9,6 +9,9 @@ console.log(x);
 //     console.log(data);
 // }
 
+x.forEach((value) => {
+  console.log( value);
+});
 
 
 
@@ -20,6 +23,23 @@ console.log(x);
 
 
 // console.log(map)
+
+// Correct way to initialize Map
+
+// 👉 Map constructor takes an array of key–value pairs.
+
+// Basic syntax
+const map = new Map([
+  ["name", "Nikhil"],
+  ["age", 22],
+  ["isStudent", true]
+]);
+
+console.log(map.get("name")); // Nikhil
+
+map.forEach((value, key) => {
+  console.log(key, value);
+});
 
 
 let a=["a","b","c","d"];
@@ -53,3 +73,9 @@ let a=["a","b","c","d"];
 // console.log(ws.has(user)); // true
 
 // user = null; 
+
+
+
+
+// WeakSet uniqueness is based on object reference, not object content.
+// &Same with WeakMap
