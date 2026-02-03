@@ -79,3 +79,52 @@ let a=["a","b","c","d"];
 
 // WeakSet uniqueness is based on object reference, not object content.
 // &Same with WeakMap
+
+
+// WeakSet – Uniqueness
+// Rule
+
+// 👉 WeakSet uniqueness is based on object reference, NOT object content.
+
+// Example
+// const ws = new WeakSet();
+
+// const a = { name: "Nikhil" };
+// const b = { name: "Nikhil" };
+
+// ws.add(a);
+// ws.add(b); // ✅ added
+
+// Why?
+// a === b // false
+
+// Same reference overwrites value
+// wm.set(a, "Admin");
+// wm.set(a, "SuperAdmin"); // value updated
+
+// Even though data is same, memory reference is different.
+
+// Important
+// ws.add(a);
+// ws.add(a); // ❌ not added again
+
+
+// Same reference → duplicate → ignored.
+
+// 🔹 WeakMap – Uniqueness
+// Rule
+
+// 👉 WeakMap keys are unique by object reference.
+
+// Example
+// const wm = new WeakMap();
+
+// const a = { id: 1 };
+// const b = { id: 1 };
+
+// wm.set(a, "Admin");
+// wm.set(b, "User"); // ✅ allowed
+
+// Why?
+// a === b // false
+
