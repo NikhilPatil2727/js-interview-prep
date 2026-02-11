@@ -1,4 +1,7 @@
 
+// call, apply, and bind are used to control the this keyword in JavaScript.
+
+
 let a={
     name:"nikhil",
     age:24,
