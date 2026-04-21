@@ -26,6 +26,9 @@ They are execute in parallel;
 
 “Whoever finishes first, I accept it”
 
+Returns first promise that finishes
+(success OR failure).
+
 ******************************************************************************************
 
 
