@@ -1,5 +1,5 @@
 
-// Event Bubbling in JavaScript--> Events are executing button to up;
+// Event Bubbling in JavaScript--> Events are executing bottom to up;
 or you can say that events are fired form bottom to up 
 
 capturing phase--> it is opposite of bubbling it is executing from up to down

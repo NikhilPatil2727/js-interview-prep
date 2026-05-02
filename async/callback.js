@@ -38,6 +38,9 @@
 
 //this problem solved by promise
 
+// Earlier, async operations were handled using callbacks, 
+// which often led to callback hell (nested code). 
+// Promises and async/await were introduced to make async code cleaner and more manageable.
 function step1() {
   return new Promise((resolve) => {
     setTimeout(() => {
